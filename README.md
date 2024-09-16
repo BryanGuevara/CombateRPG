@@ -2,93 +2,122 @@
 
 ## Descripción
 
-Este proyecto implementa un sencillo modelo de combate RPG en Java, donde un héroe y un enemigo se enfrentan en un combate por turnos. El jugador puede elegir entre diferentes movimientos de ataque, mientras que el enemigo selecciona un ataque de forma aleatoria. El objetivo es reducir la vida del oponente a cero para ganar la batalla.
+El **Modelo de Combates RPG** es un juego de combate por turnos en consola, desarrollado en Java. En este juego, el jugador toma el rol de un héroe que se enfrenta a distintos enemigos, utilizando una variedad de movimientos para atacar o curarse. El enemigo también responde con sus propios ataques. El objetivo es derrotar al enemigo antes de ser derrotado.
 
-## Funcionalidades
+## Características
 
-- **Nombre**: La oportuniad de ponerle nombre
-al jugador
-- **Personaje (Jugador y Enemigo)**: Cada personaje tiene una cantidad inicial de vida y una lista de movimientos de ataque.
-- **Movimientos**: Cada movimiento tiene un nombre y un valor de daño que afecta al oponente.
-- **Combate por turnos**: El jugador elige su movimiento, mientras que el enemigo selecciona uno de manera aleatoria.
-- **Condiciones de victoria o derrota**: El combate termina cuando la vida de un personaje llega a cero.
-  
-## Clases
+- **Sistema de Combate por Turnos**: El jugador y el enemigo alternan turnos para atacar o curarse.
+- **Movimientos Personalizados**: El jugador y el enemigo tienen una lista de movimientos con diferentes niveles de daño.
+- **Enemigos Aleatorios**: Cada combate es único, ya que los enemigos se generan de forma aleatoria, con diferentes habilidades y puntos de vida.
+- **Opciones de Curación**: El jugador tiene la opción de curarse en lugar de atacar durante su turno.
 
-1. **Main**: Contiene la lógica del juego y gestiona el flujo del combate.
-2. **Personaje**: Representa al jugador. Posee una vida inicial y una lista de movimientos.
-3. **Enemigo**: Representa al enemigo, similar a la clase `Personaje`, pero con la capacidad de elegir un ataque aleatorio.
-4. **Movimiento**: Define los ataques que un personaje puede usar, con atributos como el nombre del ataque y el daño que inflige.
+## Cómo Jugar
 
-## Uso
+1. **Introducir Nombre del Héroe**: Al iniciar el juego, se te pedirá que introduzcas un nombre para tu personaje.
+2. **Comienza el Combate**: Se generará un enemigo aleatorio con puntos de vida y movimientos específicos.
+3. **Turno del Jugador**:
+   - Se mostrarán los movimientos disponibles (ataques con distintos niveles de daño) y la opción de curarte.
+   - Introduce el número correspondiente al movimiento que deseas utilizar.
+4. **Turno del Enemigo**: El enemigo seleccionará aleatoriamente un movimiento para atacarte.
+5. **Fin del Juego**:
+   - El combate termina cuando la vida del jugador o del enemigo llega a 0.
+   - Si derrotas al enemigo, ganarás. Si tu vida se reduce a 0, perderás el combate.
 
-Al ejecutar el programa, se inicia un combate entre el héroe y el enemigo (Lobo Feroz). El jugador debe seleccionar un movimiento en cada turno, y el enemigo responderá con un ataque aleatorio. El combate se repite hasta que la vida de uno de los personajes llegue a 0.
+## Enemigos
+| Nombre              | Vida | Movimientos                                                                 |
+|---------------------|------|-----------------------------------------------------------------------------|
+| Lobo Feroz          | 100  | - Mordida Suave (10)<br>- Sarpazo (50)<br>- Arañazo (20)                     |
+| Monstruo de Baba     | 80   | - Golpe Gelatinoso (15)<br>- Ácido Corrosivo (40)                           |
+| Avispón             | 70   | - Picadura Venenosa (25)<br>- Vuelo Rasante (15)<br>- Aguijón (30)           |
+| Oso                 | 150  | - Golpe Pesado (50)<br>- Rugido (10)<br>- Embestida (40)<br>- Mordida (35)   |
+| Esqueleto           | 90   | - Golpe de Hueso (20)<br>- Rayo Oscuro (30)                                 |
+| Mago Oscuro         | 120  | - Bola Sombría (35)<br>- Tormenta Oscura (45)<br>- Maldición (25)            |
+| Dragón de Fuego     | 200  | - Llamarada (60)<br>- Golpe de Cola (40)<br>- Vuelo Incendiario (50)         |
+| Hombre Lobo         | 130  | - Garra Letal (45)<br>- Mordida Lupina (35)                                  |
+| Golem de Roca       | 180  | - Golpe de Roca (50)<br>- Terremoto (60)                                    |
+| Serpiente Venenosa  | 60   | - Mordida Venenosa (25)<br>- Constricción (15)                               |
 
-### Ejemplo de Ejecución
+## Ejemplo de Ejecución
 
 ```
 =================================================== <[Nombre del Heroe]> =============================================
-¿Cual es tu nombre?: Bagg12
+¿Cual es tu nombre?: Thor
 =================================================== <[Contrincante]> =================================================
-¡Comienza el combate entre Bagg12 y Lobo Feroz!
+¡Comienza el combate entre Thor y Esqueleto!
+
+Thor - Vida: 100
+Esqueleto - Vida: 90
 =================================================== <[Heroe]> ======================================================
-Turno de Bagg12: 
+Turno de Thor: 
 1. Golpe (Daño: 15)
 2. Puño (Daño: 5)
 3. Barrido (Daño: 30)
-Selecciona tu movimiento: 2
-¡Has elegido Puño!
-El enemigo Lobo Feroz recibe 5 de daño. Vida restante del enemigo: 95
-=================================================== <[Lobo Feroz]> ==================================================
-Turno del enemigo:
-El enemigo ha usado Mordida Suave!
-Recibes 10 de daño. Vida restante del jugador: 90
-=================================================== <[Heroe]> ======================================================
-Turno de Bagg12: 
-1. Golpe (Daño: 15)
-2. Puño (Daño: 5)
-3. Barrido (Daño: 30)
+4. Curar (Restaura 50 de vida)
 Selecciona tu movimiento: 3
+
 ¡Has elegido Barrido!
-El enemigo Lobo Feroz recibe 30 de daño. Vida restante del enemigo: 65
-=================================================== <[Lobo Feroz]> ==================================================
+El enemigo Esqueleto recibe 30 de daño. Vida restante del enemigo: 60
+=================================================== <[Esqueleto]> ==================================================
 Turno del enemigo:
-El enemigo ha usado Mordida Fuerte!
-Recibes 50 de daño. Vida restante del jugador: 40
+
+El enemigo ha usado Golpe de Hueso!
+Recibes 20 de daño. Vida restante del jugador: 80
 =================================================== <[Heroe]> ======================================================
-Turno de Bagg12: 
+Turno de Thor: 
 1. Golpe (Daño: 15)
 2. Puño (Daño: 5)
 3. Barrido (Daño: 30)
-Selecciona tu movimiento: 3
-¡Has elegido Barrido!
-El enemigo Lobo Feroz recibe 30 de daño. Vida restante del enemigo: 35
-=================================================== <[Lobo Feroz]> ==================================================
-Turno del enemigo:
-El enemigo ha usado Mordida Suave!
-Recibes 10 de daño. Vida restante del jugador: 30
-=================================================== <[Heroe]> ======================================================
-Turno de Bagg12: 
-1. Golpe (Daño: 15)
-2. Puño (Daño: 5)
-3. Barrido (Daño: 30)
+4. Curar (Restaura 50 de vida)
 Selecciona tu movimiento: 1
+
 ¡Has elegido Golpe!
-El enemigo Lobo Feroz recibe 15 de daño. Vida restante del enemigo: 20
-=================================================== <[Lobo Feroz]> ==================================================
+El enemigo Esqueleto recibe 15 de daño. Vida restante del enemigo: 45
+=================================================== <[Esqueleto]> ==================================================
 Turno del enemigo:
-El enemigo ha usado Mordida Suave!
-Recibes 10 de daño. Vida restante del jugador: 20
+
+El enemigo ha usado Golpe de Hueso!
+Recibes 20 de daño. Vida restante del jugador: 60
 =================================================== <[Heroe]> ======================================================
-Turno de Bagg12: 
+Turno de Thor: 
 1. Golpe (Daño: 15)
 2. Puño (Daño: 5)
 3. Barrido (Daño: 30)
+4. Curar (Restaura 50 de vida)
 Selecciona tu movimiento: 3
+
 ¡Has elegido Barrido!
-El enemigo Lobo Feroz recibe 30 de daño. Vida restante del enemigo: 0
+El enemigo Esqueleto recibe 30 de daño. Vida restante del enemigo: 15
+=================================================== <[Esqueleto]> ==================================================
+Turno del enemigo:
+
+El enemigo ha usado Golpe de Hueso!
+Recibes 20 de daño. Vida restante del jugador: 40
+=================================================== <[Heroe]> ======================================================
+Turno de Thor: 
+1. Golpe (Daño: 15)
+2. Puño (Daño: 5)
+3. Barrido (Daño: 30)
+4. Curar (Restaura 50 de vida)
+Selecciona tu movimiento: 4
+
+¡Has elegido Curar! Has restaurado 50 de vida.
+Tu vida actual es: 90
+=================================================== <[Esqueleto]> ==================================================
+Turno del enemigo:
+
+El enemigo ha usado Golpe de Hueso!
+Recibes 20 de daño. Vida restante del jugador: 70
+=================================================== <[Heroe]> ======================================================
+Turno de Thor: 
+1. Golpe (Daño: 15)
+2. Puño (Daño: 5)
+3. Barrido (Daño: 30)
+4. Curar (Restaura 50 de vida)
+Selecciona tu movimiento: 3
+
+¡Has elegido Barrido!
+El enemigo Esqueleto recibe 30 de daño. Vida restante del enemigo: 0
 =================================================== <[Victoria]> =====================================================
-¡Has derrotado al Lobo Feroz!
-Fin del combate.
+¡Has derrotado al Esqueleto!
 ==================================================================================================================
 ```
