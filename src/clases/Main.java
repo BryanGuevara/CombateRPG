@@ -7,15 +7,17 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        Personaje jugador = new Personaje("Héroe", 100);
+        System.out.println("=================================================== <[Nombre del Heroe]> =============================================");
+        System.out.print("¿Cual es tu nombre?: ");
+        String Nombre = scanner.next();
+        
+        Personaje jugador = new Personaje(Nombre, 100);
         Movimiento punio = new Movimiento(3, "Puño", 5);
         Movimiento golpe = new Movimiento(1, "Golpe", 15);
         Movimiento barrido = new Movimiento(2, "Barrido", 30);
-        Movimiento estocada = new Movimiento(5, "Estocada", 50);
         jugador.agregarMovimiento(golpe);
         jugador.agregarMovimiento(punio);
         jugador.agregarMovimiento(barrido);
-        jugador.agregarMovimiento(estocada);
 
         Enemigo enemigo = new Enemigo("Lobo Feroz", 100);
         Movimiento mordidaSuave = new Movimiento(1, "Mordida Suave", 10);
@@ -28,7 +30,7 @@ public class Main {
 
         while (jugador.vida > 0 && enemigo.vida > 0) {
             System.out.println("=================================================== <[Heroe]> ======================================================");
-            System.out.println("Turno del jugador:");
+            System.out.println("Turno de "+ jugador.nombre+": ");
             jugador.mostrarMovimientos();
             System.out.print("Selecciona tu movimiento: ");
 
